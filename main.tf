@@ -2,13 +2,13 @@
 #                                  Variables                                  #
 ###############################################################################
 variable "region" {
-  default = "ca-central-1"
+  default = "ap-south-1"
 }
 variable "account_id" {
-  default = "059793240584"
+  default = "043537518696"
 }
 variable "lambda_role" {
-  default = "arn:aws:iam::059793240584:role/ec2_start_stop_role"
+  default = "arn:aws:iam::043537518696:role/ec2_start_stop_role"
 }
 ###############################################################################
 #                       Backend and Remote State Setup                        #
@@ -16,7 +16,7 @@ variable "lambda_role" {
 
 terraform {
   backend "s3" {
-    bucket = "gl-intern-terraform"
+    bucket = "slack-test-intern-terraform"
     key    = "terraform.tfstate"
     region = "us-west-2"
   }
@@ -25,7 +25,7 @@ terraform {
 data "terraform_remote_state" "network" {
   backend = "s3"
   config {
-    bucket = "gl-intern-terraform"
+    bucket = "slack-test-intern-terraform"
     key    = "terraform.tfstate"
     region = "us-west-2"
   }
